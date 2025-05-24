@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'SOLID_Priciples' title`, () => {
+  it(`should have the 'SOLID_Principles' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('SOLID_Priciples');
+    expect(app.title).toEqual('SOLID_Principles');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SOLID_Priciples');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SOLID_Principles');
   });
 });

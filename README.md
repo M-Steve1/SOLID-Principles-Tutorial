@@ -1,6 +1,15 @@
-# SOLIDPriciples
+# SOLID Principle Tutorial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+SOLID is an acronym for five design principles used in OOP for designing a software. The benefit of following these principles involves:
+
+- Makes your software easy to maintain
+- Easy to scale (Scalability)
+- Easy to understand (Comprehensible)
+- Resilient to change
+
+#### S - Single Responsibility Principle
+
+A class should do only one thing or have only one responsibility, ergo have only one reason to change or be modified. an example is a class that handles user should not also handle logging of users, because if it does, it now has two reasons to change "User" and "logging". **Note:** that in a more complex app where the user logic becomes more complex you can further split into "UserQueryService" and "UserCommandService" (Command Query Responsibility Segregation).
 
 ## Development server
 
@@ -35,25 +44,3 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
