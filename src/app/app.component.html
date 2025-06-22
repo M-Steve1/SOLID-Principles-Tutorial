@@ -1,1 +1,10 @@
 <router-outlet></router-outlet>
+<button (click)="send('Email', 'Message via Email')">
+    Send Email
+</button>
+<button (click)="send('SMS', 'Message via SMS')">
+    Send SMS
+</button>
+<button (click)="send('Push', 'Message via Push Notification')">
+    Send Push Notification
+</button>
