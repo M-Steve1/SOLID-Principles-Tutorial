@@ -165,6 +165,47 @@ SpendingRule> = {
 }
 ```
 
+#### L - Liskov Substitution Principle (LSP)
+
+Subclasses should behave correctly when used in place of their base classes. The Notification System will be used as an example here. Imagine you’re building a service that sends different types of notifications: Email, SMS, Push
+
+**Step 1: Define Base Interface**
+
+```
+export interface NotificationStrategy {
+    notify(message: string): void;
+}
+```
+
+**Step 2: Implement Concrete Subclasses**
+
+```
+export class EmailStrategy implements NotificationStrategy {
+    notify(message: string): void {
+        console.log("Email: ", message);
+    }
+}
+
+export class SmsStrategy implements NotificationStrategy {
+    notify(message: string): void {
+        console.log("SMS: ", message);
+    }
+}
+```
+
+**Step 3: Use Them Interchangeable**
+
+```
+function notifyUser(notification: Notification, message: string) {
+    notification.notify(message);
+}
+
+notifyUser(new EmailStrategy(), "Hope this email finds you well");
+notifyUser(new SmsStrategy(), "Hello There");
+
+// Both subclasses can replace base class without breaking the code.
+```
+
 ## Development server
 
 To start a local development server, run:
