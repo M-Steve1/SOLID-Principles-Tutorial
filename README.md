@@ -206,6 +206,88 @@ notifyUser(new SmsStrategy(), "Hello There");
 // Both subclasses can replace base class without breaking the code.
 ```
 
+#### O - Interface Segregation Principle (ISP)
+
+In ISP clients should not be forced to depend on interfaces they do not use. e.g Imagine a School Management System where different people in the school have different permission.
+
+| Role         | Can Create | Can Edit | Can Delete | Can Publish | Can View |
+| ------------ | ---------- | -------- | ---------- | ----------- | -------- |
+| HeadOfSchool | ✅         | ✅       | ✅         | ✅          | ✅       |
+| Teacher      | ❌         | ✅       | ❌         | ✅          | ✅       |
+| Student      | ❌         | ❌       | ❌         | ❌          | ✅       |
+
+```
+❌  Bad Design (Violates ISP)
+
+interface SchoolPermission {
+    create: () => void,
+    edit: () => void,
+    delete: () => void,
+    publish: () => void,
+    view: () => void,
+}
+
+// Now every class will have to implement interface they don't need
+
+class Teacher implements SchoolPermission {
+    create () {
+        throw new Error("Not Allowed");
+    }
+    edit () {
+        console.log("Can edit Student");
+    }
+    delete() {
+        throw new Error("Not Allowed");
+    }
+    publish () {
+        console.log("Can publish Result");
+    }
+    view () {
+        console.log("Can View Result");
+    }
+}
+```
+
+```
+✅ Good Design (Applies ISP)
+
+1. Split Interfaces
+
+interface CreatePermission {
+    create: () => void,
+}
+
+interface EditPermission {
+    edit: () => void,
+}
+
+interface DeletePermission {
+    delete: () => void,
+}
+
+interface PublishPermission {
+    publish: () => void,
+}
+
+interface ViewPermission {
+    view: () => void,
+}
+
+2. Implement only interface you need
+
+class Teacher implements EditPermission, PublishPermission, ViewPermission {
+    edit () {
+        console.log("Can edit Student");
+    }
+    publish () {
+        console.log("Can publish Result");
+    }
+    view () {
+        console.log("Can View Result");
+    }
+}
+```
+
 ## Development server
 
 To start a local development server, run:
