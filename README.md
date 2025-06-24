@@ -288,6 +288,32 @@ class Teacher implements EditPermission, PublishPermission, ViewPermission {
 }
 ```
 
+#### D - Dependency Inversion Principle (DIP)
+
+High level module depends on **abstractions**, and not concrete implement
+
+```
+// 1. A concrete EmailService:
+
+export class EmailService {
+  sendEmail(message: string) {
+    console.log('Sending email:', message);
+  }
+}
+
+2. NotificationComponent directly depends on EmailService:
+
+export class NotificationComponent {
+  constructor(private emailService: EmailService) {}
+
+  send() {
+    this.emailService.sendEmail('Hello!');
+  }
+}
+```
+
+"High-level modules (like NotificationComponent) should not depend directly on low-level modules (EmailService). They should depend on abstractions," Just like the example used in Open Closed Principle (OCP).
+
 ## Development server
 
 To start a local development server, run:
