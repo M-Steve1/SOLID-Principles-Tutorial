@@ -290,7 +290,7 @@ class Teacher implements EditPermission, PublishPermission, ViewPermission {
 
 #### D - Dependency Inversion Principle (DIP)
 
-High level module depends on **abstractions**, and not concrete implement
+High level module depends on **abstractions**, and not concrete implementation
 
 ```
 // 1. A concrete EmailService:
