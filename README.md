@@ -9,7 +9,7 @@ SOLID is an acronym for five design principles used in OOP for designing a softw
 
 #### S - Single Responsibility Principle
 
-A class should do only one thing or have only one responsibility, ergo have only one reason to change or be modified. an example is a class that handles user should not also handle logging of users, because if it does, it now has two reasons to change "User" and "logging". **Note:** that in a more complex app where the user logic becomes more complex you can further split into "UserQueryService" and "UserCommandService" (Command Query Responsibility Segregation).
+A class should do only one thing or have only one responsibility, ergo has only one reason to change or be modified. an example is a class that handles user should not also handle logging of users, because if it does, it now has two reasons to change "User" and "logging". **Note:** that in a more complex app where the user logic becomes more complex you can further split into "UserQueryService" and "UserCommandService" (Command Query Responsibility Segregation).
 
 #### O - Open/Closed Principles (OCP)
 
@@ -19,7 +19,8 @@ e.g in a situation where you have different messaging strategies, you can create
 ```bash
 //notification-strategy.interface.ts
 /**
- * With this interface there is room for extension, but not modifying the existing classes implementing this interface.
+ * With this interface there is room for extension, but not modifying the
+ * existing classes implementing this interface.
  * If there is a need to add new notification strategy all we need do is to add new classes.
  */
 export interface NotificationStrategy {
@@ -34,7 +35,8 @@ Now, create an email class implementing this interface.
 import { NotificationStrategy } from "./notification-strategy.interface";
 
 /**
- * @field type: This field is used to identify the class to call, since we have several classes implementing "NotificationStrategy"
+ * @field type: This field is used to identify the class to call, since we have
+ * several classes implementing "NotificationStrategy"
  * @function notify The logic of how the user is to be notified, here we are using E-mail.
  */
 export class EmailStrategy implements NotificationStrategy {
